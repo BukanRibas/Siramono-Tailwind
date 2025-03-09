@@ -1,66 +1,72 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Siramono</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-green-100 text-gray-800 font-sans flex flex-col min-h-screen">
     <!-- Header -->
     <header class="bg-green-600 text-white p-4 flex justify-between items-center">
         <h1 class="text-xl font-bold mx-auto">Siramono</h1>
         <button class="text-lg font-semibold" onclick="location.href='beranda.html'">Beranda</button>
     </header>
-    
+
     <!-- Title -->
     <div class="text-center mt-8">
         <h1 class="text-4xl font-bold" style="font-family: 'Kablammo', cursive;">Tentang Kami</h1>
     </div>
-    
+
     <!-- Team Members -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8 px-8 flex-grow">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mb-8 gap-6 mt-8 px-8 flex-grow">
         <style>
             .profile-card {
                 min-height: 220px;
             }
         </style>
-        <div class="bg-white p-4 shadow-md rounded-lg text-center cursor-pointer profile-card" onclick="showProfile('Amriza', '123456', '01 Januari 2000', 'Membaca', '@nama1', 'profile1.jpg', 'Motto: Berkembang setiap hari!')">
-            <img src="profile1.jpg" alt="Profil Amriza" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
-            <p class="text-lg font-semibold">Amriza</p>
+        <div class="bg-white pt-20 p-4 shadow-md rounded-lg text-center cursor-pointer profile-card"
+            onclick="showProfile('Amriza Saskirana', '23082010096', '27 Februari 2005', 'Mendengarkan Musik', '@amriza.s', './img/profile1.png', 'Motto: Mengumpulkan tugas tepat waktu!')">
+            <img src="./img/profile1.png" alt="Profil Amriza" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+            <p class="text-lg font-semibold">Amriza Saskirana</p>
             <p class="text-sm text-gray-600">Posisi: Developer</p>
         </div>
-        <div class="bg-white p-4 shadow-md rounded-lg text-center cursor-pointer profile-card" onclick="showProfile('Damar', '234567', '02 Februari 2001', 'Desain', '@nama2', 'profile2.jpg', 'Motto: Skibidi')">
-            <img src="profile2.jpg" alt="Profil Damar" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
-            <p class="text-lg font-semibold">Damar</p>
+        <div class="bg-white pt-20 p-4 shadow-md rounded-lg text-center cursor-pointer profile-card"
+            onclick="showProfile('Damar Adji', '23082010102', '02 Februari 2005', 'Desain', '@damaradji_11', './img/profile2.jpg', 'Motto: Skibidi')">
+            <img src="./img/profile2.jpg" alt="Profil Damar" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+            <p class="text-lg font-semibold">Damar Adji</p>
             <p class="text-sm text-gray-600">Posisi: Designer</p>
         </div>
-        <div class="bg-white p-4 shadow-md rounded-lg text-center cursor-pointer profile-card" onclick="showProfile('Ribas', '23082010083', '16 Oktober 2004', 'UIIAIUUIAI', '@bassatriaa', 'https://github.com/BukanRibas/Siramono-Tailwind/blob/main/profile2.jpg.JPG', 'Motto: Kau Yang Gelap Bukan RI.')">
-            <img src="https://github.com/BukanRibas/Siramono-Tailwind/blob/main/profile2.jpg.JPG" alt="Profil Ribas" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
-            <p class="text-lg font-semibold">Ribas</p>
+        <div class="bg-white pt-20 p-4 shadow-md rounded-lg text-center cursor-pointer profile-card"
+            onclick="showProfile('Ribas Satria', '23082010083', '16 Oktober 2004', 'UIIAIUUIAI', '@bassatriaa', './img/profile3.png', 'Motto: Kau Yang Gelap Bukan RI.')">
+            <img src="./img/profile3.png" alt="Profil Ribas" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+            <p class="text-lg font-semibold">Ribas Satria</p>
             <p class="text-sm text-gray-600">Posisi: Backend</p>
         </div>
-        <div class="bg-white p-4 shadow-md rounded-lg text-center cursor-pointer profile-card" onclick="showProfile('Cia', '456789', '04 April 2003', 'Manajemen Proyek', '@nama4', 'https://github.com/BukanRibas/Siramono-Tailwind/blob/main/profile4.jpg?raw=true', 'Motto: Kesuksesan datang dari kerja tim yang solid.')">
-            <img src="https://github.com/BukanRibas/Siramono-Tailwind/blob/main/profile4.jpg?raw=true" alt="Cia" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
-            <p class="text-lg font-semibold">Cia</p>
+        <div class="bg-white pt-20 p-4 shadow-md rounded-lg text-center cursor-pointer profile-card"
+            onclick="showProfile('Cindy Fitri', '23082010115', '04 April 2003', 'Manajemen Proyek', '@moonaciaa_', './img/profile4.jpg', 'Motto: Kesuksesan datang dari kerja tim yang solid.')">
+            <img src="./img/profile4.jpg" alt="Cia" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+            <p class="text-lg font-semibold">Cindy Fitri</p>
             <p class="text-sm text-gray-600">Posisi: Project Manajer</p>
         </div>
     </div>
-    
+
     <!-- Profile Modal -->
     <div id="profileModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
         <div class="bg-white p-6 rounded-lg shadow-lg text-center w-80">
             <img id="modalImage" src="" alt="Profil" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
             <h2 class="text-xl font-bold mb-4" id="modalName"></h2>
-            <p><strong>NPM:</strong> <span id="modalNPM"></span></p>
-            <p><strong>Tanggal Lahir:</strong> <span id="modalTanggalLahir"></span></p>
-            <p><strong>Hobi:</strong> <span id="modalHobi"></span></p>
-            <p><strong>Akun Medsos:</strong> <span id="modalMedsos"></span></p>
+            <p><strong>NPM :</strong> <span id="modalNPM"></span></p>
+            <p><strong>Tanggal Lahir :</strong> <span id="modalTanggalLahir"></span></p>
+            <p><strong>Hobi :</strong> <span id="modalHobi"></span></p>
+            <p><strong>Instagram :</strong> <span id="modalMedsos"></span></p>
             <p class="italic mt-2" id="modalMotto"></p>
             <button class="mt-4 px-4 py-2 bg-red-500 text-white rounded-md" onclick="closeModal()">Tutup</button>
         </div>
     </div>
-    
+
     <!-- Footer -->
     <footer class="bg-green-600 text-white text-center p-4 w-full mt-auto">
         <p>©Siramono2025</p>
@@ -82,4 +88,5 @@
         }
     </script>
 </body>
+
 </html>

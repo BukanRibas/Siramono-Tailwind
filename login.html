@@ -1,19 +1,63 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Manajemen Tanaman</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-cover bg-center h-screen flex items-center justify-center" style="background-image: url('https://www.smsperkasa.com/_next/image?url=https%3A%2F%2Fcpanel-blog.smsperkasa.com%2Fwp-content%2Fuploads%2F2024%2F10%2Ftanaman-hias-min.png&w=1920&q=75');">
+
+<body class="bg-cover bg-center h-screen flex items-center justify-center"
+    style="background-image: url('https://www.smsperkasa.com/_next/image?url=https%3A%2F%2Fcpanel-blog.smsperkasa.com%2Fwp-content%2Fuploads%2F2024%2F10%2Ftanaman-hias-min.png&w=1920&q=75');">
     <div class="bg-white bg-opacity-90 p-6 rounded-lg shadow-lg w-80 text-center">
         <h2 class="text-2xl font-semibold mb-4">Login</h2>
-        <form action="beranda.html" method="POST" class="space-y-4">
-            <input type="text" name="username" placeholder="Username" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
-            <input type="password" name="password" placeholder="Password" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
-            <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition duration-200">Login</button>
+        <form onsubmit="return validateForm(event)" class="space-y-4">
+            <input type="text" id="username" placeholder="Username"
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            <p id="usernameError" class="text-red-500 text-sm hidden">Username minimal 3 karakter!</p>
+
+            <input type="password" id="password" placeholder="Password"
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            <p id="passwordError" class="text-red-500 text-sm hidden">Password minimal 6 karakter!</p>
+
+            <button type="submit"
+                class="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition duration-200">Login</button>
         </form>
     </div>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Mencegah form submit default
+
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            let usernameError = document.getElementById("usernameError");
+            let passwordError = document.getElementById("passwordError");
+            let valid = true;
+
+            // Reset error message
+            usernameError.classList.add("hidden");
+            passwordError.classList.add("hidden");
+
+            // Validasi username
+            if (username.length < 3) {
+                usernameError.classList.remove("hidden");
+                valid = false;
+            }
+
+            // Validasi password
+            if (password.length < 6) {
+                passwordError.classList.remove("hidden");
+                valid = false;
+            }
+
+            // Jika validasi berhasil, redirect ke beranda.html
+            if (valid) {
+                window.location.href = "beranda.html";
+            }
+        }
+    </script>
 </body>
+
 </html>
