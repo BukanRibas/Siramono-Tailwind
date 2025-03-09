@@ -19,29 +19,39 @@
     
     <!-- Team Members -->
     <div class="flex justify-center gap-4 mt-8 px-4 overflow-x-auto">
-        <div class="bg-white p-4 shadow-md rounded-lg text-center w-60">
+        <div class="bg-white p-4 shadow-md rounded-lg text-center w-60 cursor-pointer" onclick="showProfile('Amriza', '123456', '01 Januari 2000', 'Membaca', '@nama1', 'profile1.jpg', 'Motto: Berkembang setiap hari!')">
             <img src="profile1.jpg" alt="Profil 1" class="w-full h-40 object-cover rounded-md">
-            <p class="mt-2 font-semibold">Nama 1</p>
-            <p class="text-sm font-bold">Front-End</p>
-            <p class="text-xs italic">"Motto hidup saya adalah berkembang setiap hari."</p>
+            <p class="mt-2 font-semibold">Amriza</p>
+            <p class="text-sm">Posisi: Developer</p>
         </div>
-        <div class="bg-white p-4 shadow-md rounded-lg text-center w-60">
+        <div class="bg-white p-4 shadow-md rounded-lg text-center w-60 cursor-pointer" onclick="showProfile('Damar', '234567', '02 Februari 2001', 'Desain', '@nama2', 'profile2.jpg', 'Motto: Skibidi')">
             <img src="profile2.jpg" alt="Profil 2" class="w-full h-40 object-cover rounded-md">
-            <p class="mt-2 font-semibold">Nama 2</p>
-            <p class="text-sm font-bold">UI/UX</p>
-            <p class="text-xs italic">"Kreativitas tanpa batas!"</p>
+            <p class="mt-2 font-semibold">Damar</p>
+            <p class="text-sm">Posisi: Designer</p>
         </div>
-        <div class="bg-white p-4 shadow-md rounded-lg text-center w-60">
-            <img src="profile3.jpg" alt="Profil 3" class="w-full h-40 object-cover rounded-md">
-            <p class="mt-2 font-semibold">Ribas </p>
-            <p class="text-sm font-bold">Back-End</p>
-            <p class="text-xs italic">"Yang gelap bukan Indonesia Tapi KAU."</p>
+        <div class="bg-white p-4 shadow-md rounded-lg text-center w-60 cursor-pointer" onclick="showProfile('Ribas', '23082010083', '16 Oktober 2004', 'UIIAIUUIAI', '@bassatriaa', 'https://github.com/BukanRibas/Siramono-Tailwind/blob/main/profile2.jpg.JPG', 'Motto: Kau Yang Gelap Bukan RI.')">
+            <img src="https://github.com/BukanRibas/Siramono-Tailwind/blob/main/profile2.jpg.JPG" alt="Profil Ribas" class="w-full h-40 object-cover rounded-md">
+            <p class="mt-2 font-semibold">Ribas</p>
+            <p class="text-sm">Posisi: Backend</p>
         </div>
-        <div class="bg-white p-4 shadow-md rounded-lg text-center w-60">
-            <img src="profile4.jpg" alt="Profil 4" class="w-full h-40 object-cover rounded-md">
-            <p class="mt-2 font-semibold">Cia</p>
-            <p class="text-sm font-bold">Project Manager</p>
-            <p class="text-xs italic">"Kesuksesan datang dari kerja tim yang solid."</p>
+        <div class="bg-white p-4 shadow-md rounded-lg text-center w-60 cursor-pointer" onclick="showProfile('Cia', '456789', '04 April 2003', 'Manajemen Proyek', '@nama4', 'https://github.com/BukanRibas/Siramono-Tailwind/blob/main/profile4.jpg?raw=true', 'Motto: Kesuksesan datang dari kerja tim yang solid.')">
+            <img src="https://github.com/BukanRibas/Siramono-Tailwind/blob/main/profile4.jpg?raw=true" alt="Cia" class="w-full h-40 object-cover rounded-md">
+            <p class=\"mt-2 font-semibold\">Cia</p>
+            <p class=\"text-sm\">Posisi: Project Manajer</p>
+        </div>
+    </div>
+    
+    <!-- Profile Modal -->
+    <div id="profileModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center w-80">
+            <img id="modalImage" src="" alt="Profil" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+            <h2 class="text-xl font-bold mb-4" id="modalName"></h2>
+            <p><strong>NPM:</strong> <span id="modalNPM"></span></p>
+            <p><strong>Tanggal Lahir:</strong> <span id="modalTanggalLahir"></span></p>
+            <p><strong>Hobi:</strong> <span id="modalHobi"></span></p>
+            <p><strong>Akun Medsos:</strong> <span id="modalMedsos"></span></p>
+            <p class="italic mt-2" id="modalMotto"></p>
+            <button class="mt-4 px-4 py-2 bg-red-500 text-white rounded-md" onclick="closeModal()">Tutup</button>
         </div>
     </div>
     
@@ -49,5 +59,21 @@
     <footer class="bg-green-600 text-white text-center p-4 mt-10">
         <p>©Siramono2025</p>
     </footer>
+
+    <script>
+        function showProfile(name, npm, tanggalLahir, hobi, medsos, image, motto) {
+            document.getElementById('modalName').textContent = name;
+            document.getElementById('modalNPM').textContent = npm;
+            document.getElementById('modalTanggalLahir').textContent = tanggalLahir;
+            document.getElementById('modalHobi').textContent = hobi;
+            document.getElementById('modalMedsos').textContent = medsos;
+            document.getElementById('modalImage').src = image;
+            document.getElementById('modalMotto').textContent = motto;
+            document.getElementById('profileModal').classList.remove('hidden');
+        }
+        function closeModal() {
+            document.getElementById('profileModal').classList.add('hidden');
+        }
+    </script>
 </body>
 </html>
