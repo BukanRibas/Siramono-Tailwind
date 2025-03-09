@@ -6,9 +6,10 @@
     <title>About Us - Siramono</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-green-100 text-gray-800 font-sans">
+<body class="bg-green-100 text-gray-800 font-sans flex flex-col min-h-screen">
     <!-- Header -->
     <header class="bg-green-600 text-white p-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold mx-auto">Siramono</h1>
         <button class="text-lg font-semibold" onclick="location.href='beranda.html'">Beranda</button>
     </header>
     
@@ -18,26 +19,31 @@
     </div>
     
     <!-- Team Members -->
-    <div class="flex justify-center gap-4 mt-8 px-4 overflow-x-auto">
-        <div class="bg-white p-4 shadow-md rounded-lg text-center w-60 cursor-pointer" onclick="showProfile('Amriza', '123456', '01 Januari 2000', 'Membaca', '@nama1', 'profile1.jpg', 'Motto: Berkembang setiap hari!')">
-            <img src="profile1.jpg" alt="Profil 1" class="w-full h-40 object-cover rounded-md">
-            <p class="mt-2 font-semibold">Amriza</p>
-            <p class="text-sm">Posisi: Developer</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8 px-8 flex-grow">
+        <style>
+            .profile-card {
+                min-height: 220px;
+            }
+        </style>
+        <div class="bg-white p-4 shadow-md rounded-lg text-center cursor-pointer profile-card" onclick="showProfile('Amriza', '123456', '01 Januari 2000', 'Membaca', '@nama1', 'profile1.jpg', 'Motto: Berkembang setiap hari!')">
+            <img src="profile1.jpg" alt="Profil Amriza" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+            <p class="text-lg font-semibold">Amriza</p>
+            <p class="text-sm text-gray-600">Posisi: Developer</p>
         </div>
-        <div class="bg-white p-4 shadow-md rounded-lg text-center w-60 cursor-pointer" onclick="showProfile('Damar', '234567', '02 Februari 2001', 'Desain', '@nama2', 'profile2.jpg', 'Motto: Skibidi')">
-            <img src="profile2.jpg" alt="Profil 2" class="w-full h-40 object-cover rounded-md">
-            <p class="mt-2 font-semibold">Damar</p>
-            <p class="text-sm">Posisi: Designer</p>
+        <div class="bg-white p-4 shadow-md rounded-lg text-center cursor-pointer profile-card" onclick="showProfile('Damar', '234567', '02 Februari 2001', 'Desain', '@nama2', 'profile2.jpg', 'Motto: Skibidi')">
+            <img src="profile2.jpg" alt="Profil Damar" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+            <p class="text-lg font-semibold">Damar</p>
+            <p class="text-sm text-gray-600">Posisi: Designer</p>
         </div>
-        <div class="bg-white p-4 shadow-md rounded-lg text-center w-60 cursor-pointer" onclick="showProfile('Ribas', '23082010083', '16 Oktober 2004', 'UIIAIUUIAI', '@bassatriaa', 'https://github.com/BukanRibas/Siramono-Tailwind/blob/main/profile2.jpg.JPG', 'Motto: Kau Yang Gelap Bukan RI.')">
-            <img src="https://github.com/BukanRibas/Siramono-Tailwind/blob/main/profile2.jpg.JPG" alt="Profil Ribas" class="w-full h-40 object-cover rounded-md">
-            <p class="mt-2 font-semibold">Ribas</p>
-            <p class="text-sm">Posisi: Backend</p>
+        <div class="bg-white p-4 shadow-md rounded-lg text-center cursor-pointer profile-card" onclick="showProfile('Ribas', '23082010083', '16 Oktober 2004', 'UIIAIUUIAI', '@bassatriaa', 'https://github.com/BukanRibas/Siramono-Tailwind/blob/main/profile2.jpg.JPG', 'Motto: Kau Yang Gelap Bukan RI.')">
+            <img src="https://github.com/BukanRibas/Siramono-Tailwind/blob/main/profile2.jpg.JPG" alt="Profil Ribas" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+            <p class="text-lg font-semibold">Ribas</p>
+            <p class="text-sm text-gray-600">Posisi: Backend</p>
         </div>
-        <div class="bg-white p-4 shadow-md rounded-lg text-center w-60 cursor-pointer" onclick="showProfile('Cia', '456789', '04 April 2003', 'Manajemen Proyek', '@nama4', 'https://github.com/BukanRibas/Siramono-Tailwind/blob/main/profile4.jpg?raw=true', 'Motto: Kesuksesan datang dari kerja tim yang solid.')">
-            <img src="https://github.com/BukanRibas/Siramono-Tailwind/blob/main/profile4.jpg?raw=true" alt="Cia" class="w-full h-40 object-cover rounded-md">
-            <p class=\"mt-2 font-semibold\">Cia</p>
-            <p class=\"text-sm\">Posisi: Project Manajer</p>
+        <div class="bg-white p-4 shadow-md rounded-lg text-center cursor-pointer profile-card" onclick="showProfile('Cia', '456789', '04 April 2003', 'Manajemen Proyek', '@nama4', 'https://github.com/BukanRibas/Siramono-Tailwind/blob/main/profile4.jpg?raw=true', 'Motto: Kesuksesan datang dari kerja tim yang solid.')">
+            <img src="https://github.com/BukanRibas/Siramono-Tailwind/blob/main/profile4.jpg?raw=true" alt="Cia" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+            <p class="text-lg font-semibold">Cia</p>
+            <p class="text-sm text-gray-600">Posisi: Project Manajer</p>
         </div>
     </div>
     
@@ -56,7 +62,7 @@
     </div>
     
     <!-- Footer -->
-    <footer class="bg-green-600 text-white text-center p-4 mt-10">
+    <footer class="bg-green-600 text-white text-center p-4 w-full mt-auto">
         <p>©Siramono2025</p>
     </footer>
 
