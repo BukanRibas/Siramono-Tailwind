@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Siramono</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-cover bg-center h-screen flex items-center justify-center"
+  style="background-image: url('https://www.smsperkasa.com/_next/image?url=https%3A%2F%2Fcpanel-blog.smsperkasa.com%2Fwp-content%2Fuploads%2F2024%2F10%2Ftanaman-hias-min.png&w=1920&q=75');">
+  <div class="bg-white bg-opacity-90 p-6 rounded-lg shadow-lg w-96 text-center">
+    <h2 class="text-2xl font-semibold mb-4">Daftar Akun</h2>
+    <form onsubmit="return validateRegister(event)" class="space-y-4">
+      <input type="text" id="newUsername" placeholder="Username"
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+      <p id="newUsernameError" class="text-red-500 text-sm hidden">Username minimal 3 karakter!</p>
+
+      <input type="email" id="email" placeholder="Email"
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+      <p id="emailError" class="text-red-500 text-sm hidden">Masukkan email yang valid!</p>
+
+      <input type="password" id="newPassword" placeholder="Password"
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+      <p id="newPasswordError" class="text-red-500 text-sm hidden">Password minimal 6 karakter!</p>
+
+      <button type="submit"
+        class="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition duration-200">Daftar</button>
+    </form>
+
+    <p class="text-gray-600 text-sm mt-2">Sudah punya akun? <a href="login.html"
+        class="text-green-600 hover:underline">Login</a></p>
+
+  </div>
+
+  <script>
+    function validateRegister(event) {
+      event.preventDefault(); // Mencegah form submit default
+
+      let newUsername = document.getElementById("newUsername").value;
+      let email = document.getElementById("email").value;
+      let newPassword = document.getElementById("newPassword").value;
+
+      let newUsernameError = document.getElementById("newUsernameError");
+      let emailError = document.getElementById("emailError");
+      let newPasswordError = document.getElementById("newPasswordError");
+
+      let valid = true;
+
+      // Reset error messages
+      newUsernameError.classList.add("hidden");
+      emailError.classList.add("hidden");
+      newPasswordError.classList.add("hidden");
+
+      // Validasi username
+      if (newUsername.length < 3) {
+        newUsernameError.classList.remove("hidden");
+        valid = false;
+      }
+
+      // Validasi email
+      if (!email.includes("@") || !email.includes(".")) {
+        emailError.classList.remove("hidden");
+        valid = false;
+      }
+
+      // Validasi password
+      if (newPassword.length < 6) {
+        newPasswordError.classList.remove("hidden");
+        valid = false;
+      }
+
+      // Jika validasi berhasil, redirect ke beranda.html
+      if (valid) {
+        alert("Pendaftaran berhasil! Anda akan diarahkan ke beranda.");
+        window.location.href = "beranda.html";
+      }
+    }
+  </script>
+</body>
+
+</html>
