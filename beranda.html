@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beranda - Siramono</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body class="bg-green-100 text-gray-800 font-sans flex flex-col min-h-screen items-center">
@@ -16,7 +17,7 @@
             <button class="text-lg font-semibold hover:underline"
                 onclick="location.href='beranda.html'">Beranda</button>
             <button class="text-lg font-semibold hover:underline"
-                onclick="location.href='tanamanku.html'">Tanamanku</button>
+                onclick="location.href='./CRUD/index.php'">Tanamanku</button>
         </nav>
     </header>
 
@@ -31,6 +32,7 @@
             <p class="text-lg text-gray-700">Sudahkah kamu merawat tanamanmu hari ini?</p>
         </div>
 
+        <!-- List Tanaman -->
         <div
             class="container mt-10 mx-auto font-serif sm:flex-row flex flex-col items-center gap-6 sm:flex-wrap sm:gap-6 lg:flex-nowrap sm:justify-evenly">
             <div class="bg-white p-5 w-80 shadow-lg rounded-xl text-center hover:shadow-xl transition">
@@ -54,6 +56,12 @@
                 <p class="mt-3 font-semibold">Tanaman Hias Berduri</p>
             </div>
         </div>
+
+        <!-- Chart Data Tanaman -->
+        <div class="mt-12 w-full max-w-4xl mx-auto bg-white p-6 shadow-lg rounded-xl">
+            <h2 class="text-2xl font-semibold text-center">Grafik Jumlah Tanaman Berdasarkan Jenis</h2>
+            <canvas id="tanamanChart"></canvas>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -61,6 +69,37 @@
         <a href="aboutus.html" class="underline hover:text-gray-200">About Us</a>
         <p class="mt-2">© Siramono 2025</p>
     </footer>
+
+    <script>
+        // Mengambil data dari API PHP
+        fetch('data.php')
+            .then(response => response.json())
+            .then(data => {
+                const ctx = document.getElementById('tanamanChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: data.jenis_tanaman,
+                        datasets: [{
+                            label: 'Jumlah Tanaman',
+                            data: data.jumlah_tanaman,
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
 </body>
 
 </html>
